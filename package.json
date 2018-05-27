@@ -1,0 +1,24 @@
+{
+  "name": "bosniantravel",
+  "version": "1.0.0",
+  "description": "mean stack application",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZulianTiger/bosniantravel.git"
+  },
+  "keywords": [
+    "MEAN",
+    "stack"
+  ],
+  "author": "Armin Sarajlic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZulianTiger/bosniantravel/issues"
+  },
+  "homepage": "https://github.com/ZulianTiger/bosniantravel#readme"
+}
