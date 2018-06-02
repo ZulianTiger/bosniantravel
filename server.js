@@ -3,13 +3,18 @@ var app = express();
 var port = process.env.PORT || 8080;
 var morgan = require('morgan');
 var mongoose = require('mongoose');
-var User = require('./app/models/user');
 var bodyParser = require('body-parser');
+var router = express.Router();
+var appRoutes = require('./app/routes/api')(router);
+var path = require('path');
 
-
+app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(morgan('dev'));
+app.use(express.static(__dirname + '/public'));
+app.use('/api', appRoutes);
+
+// example-route: http://localhost:8080/api/users
 
 mongoose.connect('mongodb://localhost:27017/test1', function(err){
 	if(err){
@@ -19,15 +24,8 @@ mongoose.connect('mongodb://localhost:27017/test1', function(err){
 	}
 });
 
-// http://localhost:8080/users
-app.post('/users', function(req, res){ 
-	var user = new User();
-	user.username = req.body.username;
-	user.password = req.body.password;
-	user.email = req.body.email;
-	//console.log("username: "+ user.username + "-------- password: " + user.password + "--------- email: "+ user.email);
-	user.save();
-	res.send('User created');
+app.get('*', function(req, res){
+	res.sendFile(path.join(__dirname + '/public/app/views/index.html'));
 });
 
 app.listen(port, function() {
