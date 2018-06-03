@@ -48,6 +48,25 @@ var app = angular.module('appRoutes', ['ngRoute'])
 		authenticated: false
 	})
 
+	.when('/activate/:token', {
+		templateUrl: 'app/views/pages/users/activation/activate.html',
+		controller: 'emailCtrl',
+		controllerAs: 'email'
+	})
+
+	.when('/facebook/inactive/error', {
+		templateUrl: 'app/views/pages/users/login.html',
+		controller: 'facebookCtrl',
+		controllerAs: 'facebook',
+		authenticated: false
+	})
+
+	.when('/resend', {
+		templateUrl: 'app/views/pages/users/activation/resend.html',
+		controller: 'resendCtrl',
+		controllerAs: 'resend'
+	})
+
 	.otherwise({ redirectTo: '/'});
 
 	$locationProvider.html5Mode({

@@ -35,11 +35,19 @@ angular.module('userControllers', ['userServices'])
 .controller('facebookCtrl', function($routeParams, Auth, $location, $window){
 
 	var app = this;
+	app.errorMsg = false;
+	app.expired = false;
+	app.disabled = true;
 
 	if($window.location.pathname == '/facebookerror'){
 		//error
 		app.errorMsg = 'Facebook e-mail not found in database!';
-	} else{
+	} 
+	else if($window.location.pathname == '/facebook/inactive/error'){
+		app.expired = true;
+		app.errorMsg = 'Account is not yet activated. Please check your e-mail for activation link.';
+	}
+	else{
 		Auth.facebook($routeParams.token);
 		$location.path('/');
 	}	

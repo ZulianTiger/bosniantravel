@@ -1,19 +1,19 @@
 <div class="page-header">
-	<h1>User Registration</h1>
+	<h1>User Login</h1>
 </div>
 
 <form ng-submit="main.doLogin(loginData);">
 
 	<label>Username:</label>
-	<input class="form-control" type="text" name="username" placeholder="Please enter username" ng-model="main.loginData.username">
+	<input ng-disabled="main.disabled || facebook.disabled" class="form-control" type="text" name="username" placeholder="Please enter username" ng-model="main.loginData.username">
 	<br>
 
 	<label>Password:</label>
-	<input class="form-control" type="password" name="password" placeholder="Please enter password" ng-model="main.loginData.password">
+	<input ng-disabled="main.disabled || facebook.disabled" class="form-control" type="password" name="password" placeholder="Please enter password" ng-model="main.loginData.password">
 	<br>
 
-	<button class="btn btn-primary" type="submit">Login</button>&nbsp
-	<button type="button" class="btn btn-success" ng-click="main.facebook()">Facebook</button>
+	<button ng-disabled="main.disabled || facebook.disabled" class="btn btn-primary" type="submit">Login</button>&nbsp
+	<button ng-disabled="main.disabled || facebook.disabled" type="button" class="btn btn-success" ng-click="main.facebook()">Facebook</button>
 </form>
 
 <br>
@@ -32,11 +32,11 @@
 <br>
 
 <div class="row show-hide-message" ng-show="main.errorMsg">
-	<div class="alert alert-danger">{{ main.errorMsg }}</div>
+	<div class="alert alert-danger">{{ main.errorMsg }}&nbsp<a ng-show="main.expired" href="/resend"><button type="button" class="btn btn-success">Resend Activation Link</button></a></div>
 </div>
 
 <br>
 
 <div class="row show-hide-message" ng-show="facebook.errorMsg">
-	<div class="alert alert-danger">{{ facebook.errorMsg }}</div>
+	<div class="alert alert-danger">{{ facebook.errorMsg }}&nbsp<a ng-show="facebook.expired" href="/resend"><button type="button" class="btn btn-success">Resend Activation Link</button></a></div>
 </div>

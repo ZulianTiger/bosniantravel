@@ -22,12 +22,15 @@ angular.module('mainController', ['authServices'])
 	});
 
 	this.facebook = function(){
+		app.disabled = true;
 		$window.location = $window.location.protocol + '//' + $window.location.host + '/auth/facebook';
 	};
 
 	this.doLogin = function(loginData){
 		app.loading = true;
 		app.errorMsg = false;
+		app.expired = false;
+		app.disabled = true;
 
 		Auth.login(app.loginData).then(function(data){
 			if(data.data.success){
@@ -39,11 +42,20 @@ angular.module('mainController', ['authServices'])
 					$location.path('/about');
 					app.loginData = "";
 					app.successMsg = false;
-				}, 1000);
+				}, 1500);
 			} else{
-				//error message
-				app.loading = false;
-				app.errorMsg = data.data.message;
+				if(data.data.expired){
+					//error message
+					app.disabled = true;
+					app.expired = true;
+					app.loading = false;
+					app.errorMsg = data.data.message;
+				} else{
+					//error message
+					app.loading = false;
+					app.disabled = false;
+					app.errorMsg = data.data.message;
+				}
 			}
 		});
 	};
@@ -52,6 +64,6 @@ angular.module('mainController', ['authServices'])
 		$location.path('/logout');
 		$timeout(function(){
 			$location.path('/');
-		}, 1000);
+		}, 1500);
 	};
 });
