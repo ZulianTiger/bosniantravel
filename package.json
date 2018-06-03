@@ -26,10 +26,14 @@
     "body-parser": "^1.18.3",
     "bootstrap": "^4.1.1",
     "express": "^4.16.3",
+    "express-session": "^1.15.6",
     "jquery": "^1.9.1",
     "jsonwebtoken": "^8.2.2",
     "mongoose": "^5.1.2",
+    "mongoose-title-case": "0.0.4",
     "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "passport-facebook": "^2.1.1",
     "popper.js": "^1.14.3"
   }
 }
