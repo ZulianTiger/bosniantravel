@@ -1,3 +1,111 @@
-<div class="page-header">
-	<h1>Henlo {{ main.username }} from home.html</h1>
+<div class="page-header" ng-show="main.questionNumber == 1">
+	<h1>Hello {{ main.username }}</h1>
+	<p>Welcome to bosniantravel.com!</p>
+	<p ng-show="!main.isLoggedIn">Please login to continue...</p>
+	<p ng-show="main.isLoggedIn">Answer a few questions about yourself to find your perfect destination in Bosnia and Herzegovina</p>
 </div>
+
+
+<div ng-show="main.isLoggedIn && main.questionNumber == 1">
+	<h2>How much do you like the outdoors?</h2>
+	<button class="btn btn-primary" type="button" ng-click="main.score = main.score + 5; main.questionNumber = main.questionNumber+1">I love it!</button>&nbsp
+	<button class="btn btn-primary" type="button" ng-click="main.score = main.score + 4; main.questionNumber = main.questionNumber+1">It's okay</button>&nbsp
+	<button class="btn btn-primary" type="button" ng-click="main.score = main.score + 3; main.questionNumber = main.questionNumber+1">Neutral</button>&nbsp
+	<button class="btn btn-primary" type="button" ng-click="main.score = main.score + 2; main.questionNumber = main.questionNumber+1">Not a fan</button>&nbsp
+	<button class="btn btn-primary" type="button" ng-click="main.score = main.score + 1; main.questionNumber = main.questionNumber+1">I hate it!</button>&nbsp
+</div>
+
+<div ng-show="main.isLoggedIn && main.questionNumber == 2">
+	<h2>What is your favourite season?</h2>
+	<button class="btn btn-primary" type="button" ng-click="main.score = main.score + 5; main.questionNumber = main.questionNumber+1">I don't care</button>&nbsp
+	<button class="btn btn-primary" type="button" ng-click="main.score = main.score + 4; main.questionNumber = main.questionNumber+1">Winter</button>&nbsp
+	<button class="btn btn-primary" type="button" ng-click="main.score = main.score + 3; main.questionNumber = main.questionNumber+1">Summer</button>&nbsp
+	<button class="btn btn-primary" type="button" ng-click="main.score = main.score + 2; main.questionNumber = main.questionNumber+1">Autnum</button>&nbsp
+	<button class="btn btn-primary" type="button" ng-click="main.score = main.score + 1; main.questionNumber = main.questionNumber+1">Spring</button>&nbsp
+</div>
+
+<div ng-show="main.isLoggedIn && main.questionNumber == 3">
+	<h2>Are you adventurous?</h2>
+	<button class="btn btn-primary" type="button" ng-click="main.score = main.score + 5; main.questionNumber = main.questionNumber+1">Very</button>&nbsp
+	<button class="btn btn-primary" type="button" ng-click="main.score = main.score + 4; main.questionNumber = main.questionNumber+1">Mildly</button>&nbsp
+	<button class="btn btn-primary" type="button" ng-click="main.score = main.score + 3; main.questionNumber = main.questionNumber+1">Neutral</button>&nbsp
+	<button class="btn btn-primary" type="button" ng-click="main.score = main.score + 2; main.questionNumber = main.questionNumber+1">Not really</button>&nbsp
+	<button class="btn btn-primary" type="button" ng-click="main.score = main.score + 1; main.questionNumber = main.questionNumber+1">Not at all</button>&nbsp
+</div>
+
+<div ng-show="main.isLoggedIn && main.questionNumber == 4">
+	<h2>How old are you?</h2>
+	<button class="btn btn-primary" type="button" ng-click="main.score = main.score + 5; main.questionNumber = main.questionNumber+1">18-25</button>&nbsp
+	<button class="btn btn-primary" type="button" ng-click="main.score = main.score + 4; main.questionNumber = main.questionNumber+1">27-35</button>&nbsp
+	<button class="btn btn-primary" type="button" ng-click="main.score = main.score + 3; main.questionNumber = main.questionNumber+1">36-45</button>&nbsp
+	<button class="btn btn-primary" type="button" ng-click="main.score = main.score + 2; main.questionNumber = main.questionNumber+1">46+</button>&nbsp
+	<button class="btn btn-primary" type="button" ng-click="main.score = main.score + 1; main.questionNumber = main.questionNumber+1">13-17</button>&nbsp
+</div>
+
+<div ng-show="main.isLoggedIn && main.questionNumber == 5">
+	<h2>What is your food taste like?</h2>
+	<button class="btn btn-primary" type="button" ng-click="main.score = main.score + 5; main.questionNumber = main.questionNumber+1">Alcohol</button>&nbsp
+	<button class="btn btn-primary" type="button" ng-click="main.score = main.score + 4; main.questionNumber = main.questionNumber+1">Adventurous</button>&nbsp
+	<button class="btn btn-primary" type="button" ng-click="main.score = main.score + 3; main.questionNumber = main.questionNumber+1">Meat</button>&nbsp
+	<button class="btn btn-primary" type="button" ng-click="main.score = main.score + 2; main.questionNumber = main.questionNumber+1">Sweet</button>&nbsp
+	<button class="btn btn-primary" type="button" ng-click="main.score = main.score + 1; main.questionNumber = main.questionNumber+1">Vegetarian/Vegan</button>&nbsp
+</div>
+
+<div ng-show="main.isLoggedIn && main.questionNumber == 6">
+	<h2>What is your favorite aspect of traveling?</h2>
+	<button class="btn btn-primary" type="button" ng-click="main.score = main.score + 5; main.questionNumber = main.questionNumber+1">Bars</button>&nbsp
+	<button class="btn btn-primary" type="button" ng-click="main.score = main.score + 4; main.questionNumber = main.questionNumber+1">Everything</button>&nbsp
+	<button class="btn btn-primary" type="button" ng-click="main.score = main.score + 3; main.questionNumber = main.questionNumber+1">History</button>&nbsp
+	<button class="btn btn-primary" type="button" ng-click="main.score = main.score + 2; main.questionNumber = main.questionNumber+1">Nature</button>&nbsp
+	<button class="btn btn-primary" type="button" ng-click="main.score = main.score + 1; main.questionNumber = main.questionNumber+1">Culture</button>&nbsp
+</div>
+
+<div ng-show="main.isLoggedIn && main.questionNumber == 7">
+	<h4>Your perfect travel destination in Bosnia and Herzegovina is: </h4><br>
+</div>
+
+<div ng-show="main.isLoggedIn && main.questionNumber == 7 && main.score < 11">
+	<h2>Jablanica</h2>
+	<img src="https://t-ec.bstatic.com/images/hotel/max1024x768/753/75350663.jpg" class="img-thumbnail" alt="Jajce Waterfalls">
+	<p>
+		North of Jablanica, behind the Lendava Tunnel, the Jablanicko Lake system begins. This area has developed a tourism niche on the lake. The entire length of the lake is lined with pensions, hotels, private rooms and campgrounds. The lake has some of the best fishing in the country as proved by the locals standing on the side of the road selling their 'catches of the day' - large carp, trout, bass and other fish. The place is usually crowded with local people. 
+	</p>
+</div>
+
+<div ng-show="main.isLoggedIn && main.questionNumber == 7 && main.score < 17 && main.score > 10">
+	<h2>Jajce</h2>
+	<img src="https://i.imgur.com/06shnun.jpg" class="img-thumbnail" alt="Jajce Waterfalls">
+	<p>Jajce has had more than its fair share of battles. The town changed hands several times before the independent Bosnian state was finally conquered when the Jajce fortress was the last one to fall to the Ottoman invaders in 1528. </p>
+</div>
+
+<div ng-show="main.isLoggedIn && main.questionNumber == 7 && main.score < 23 && main.score > 16">
+	<h2>Mostar</h2>
+	 <img src="https://i.imgur.com/hqEq0.jpg" class="img-thumbnail" alt="Stari Most">
+	 <p>Even mentioning the bridge for years after it fell to the bottom of the Neretva River could invoke tears as it symbolized both the city and the country as a whole. Now, more than a decade later, the beautiful stone structure that had spanned the Neretva River for over four centuries once again arches across its raging waters. The bridge is Mostar's core and its reconstruction means that life is slowly but surely returning to normal in what is most certainly the most beautiful city in Bosnia and Herzegovina.
+	 </p>
+</div>
+
+<div ng-show="main.isLoggedIn && main.questionNumber == 7 && main.score < 27 && main.score > 22">
+	<h2>Sarajevo: Film Festival</h2>
+	<img src="https://i.pinimg.com/originals/12/50/dd/1250dd4b6df608e80d23eb3dca2df9b0.jpg" class="img-thumbnail" alt="Stari Most">
+	<p>The Sarajevo Film Festival is the premier and largest film festival in Southeast Europe, and is one of the largest film festivals in Europe</p>
+</div>
+
+<div ng-show="main.isLoggedIn && main.questionNumber == 7 && main.score < 29 && main.score > 26">
+	<h2>Sarajevo: Festival 84</h2>
+	<img src="http://www.festival84.com/wp-content/uploads/2018/03/slide-5-location.jpg" class="img-thumbnail" alt="Stari Most">
+	<p>The Olympic mountain of Jahorina, located at the very heart of the Balkans in Bosnia & Herzegovina, is the perfect winter destination. In 1984, it was the home of the 14th Winter Olympic Games. This “Snow Beauty”, with its tallest peak rising at 1.916 meters, provides the opportunity for numerous winter activities such as alpine skiing, Nordic walking, sledding, night skiing, while the new Festival 84 organized by EXIT Team brought some of the most exciting performers in the world to the mountain tops, such as Sigma, Asian Dub Foundation, Joris Voorn, Umek, Burak Yeter, Bad Copy and Helem nejse. </p>
+</div>
+
+<div ng-show="main.isLoggedIn && main.questionNumber == 7 && main.score < 31 && main.score > 28">
+	<h2>Sarajevo: Beerfest</h2>
+	<img src="http://www.glas.ba/wp-content/uploads/2018/05/Ultra-Europe.jpg" class="img-thumbnail" alt="Stari Most">
+	<p>
+		For those who love good times Sarajevo Beer Festival offers an unforgettable three-day event during June (21 - 23), with its wide selection of beers, excellent sausages and first-rate music program. 
+
+		The Sarajevo Beer Festival is held every year and is also one of the city’s most popular music festivals. First held in 2012, the concept of the festival aims to include a diverse day and evening program.
+
+		During the day, visitors can try out some of the many games and contests, like sand volleyball, beer drinking competitions, etc. and later in the evening there are performances by rock'n'roll bands and some of the biggest names in the region.
+	</p>
+</div>
+

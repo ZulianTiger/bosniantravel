@@ -30,14 +30,14 @@
     <script src="app/services/userServices.js"></script>
     <script src="app/services/authServices.js"></script>
 
-    <title>Starter Template for Bootstrap</title>
+    <title>bosniantravel.com</title>
 
   </head>
 
   <body ng-app="userApp" ng-controller="mainCtrl as main" ng-show="main.loadme" ng-cloak>
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="#">bosniantravel.com</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -53,14 +53,6 @@
           <li class="nav-item">
             <a class="nav-link" href="/register" ng-show="!main.isLoggedIn">Register</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
           <li class="nav-item">
             <a ng-show="main.isLoggedIn" class="nav-link" href="#" ng-click="main.logout()">Logout</a>
           </li>
@@ -68,21 +60,21 @@
             <a ng-show="main.isLoggedIn" class="nav-link" href="/profile">Welcome, {{ main.username }}</a>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
       </div>
     </nav>
 
     <main role="main" class="container">
 
-      <div class="starter-template">
+     <!--<div class="starter-template">
         <h1>Bootstrap starter template</h1>
         <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-      </div>
+      </div>-->
 
-      <div ng-view></div>
+<div class="container">
+  <img class="img-responsive" src="https://i.imgur.com/UX10PPT.jpg" alt="Chania" width="1280" height="720"> 
+</div>
+
+      <div style="margin: 30px 0 150px 0" ng-view></div>
 
     </main><!-- /.container -->
 

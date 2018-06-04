@@ -4,6 +4,8 @@ angular.module('mainController', ['authServices'])
 	var app = this;
 
 	app.loadme = false;
+	app.questionNumber = 1;
+	app.score = 0;
 
 	$rootScope.$on('$routeChangeStart', function(){
 		if(Auth.isLoggedIn()){
